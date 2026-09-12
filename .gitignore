@@ -6,4 +6,4 @@ liquibase.local.properties
 # Archivos temporales
 *.log
 .DS_Store
-Thumbs.db
+Thumbs.db 
