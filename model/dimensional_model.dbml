@@ -1,0 +1,51 @@
+// ===================================================
+// UCV Retail - Modelo Dimensional Lógico (Star Schema)
+// Metodología Hefesto - Laboratorio 04
+// ===================================================
+
+Table dim_date {
+  date_key int [pk, note: 'Clave analítica sustituta (AAAAMMDD)']
+  full_date date
+  day int
+  month int
+  month_name varchar
+  quarter int
+  year int
+}
+
+Table dim_product {
+  product_key int [pk, note: 'Clave sustituta (Surrogate Key)']
+  product_id int [note: 'ID de origen OLTP']
+  product_name varchar
+  brand varchar
+  subcategory varchar
+  category varchar
+}
+
+Table dim_store {
+  store_key int [pk, note: 'Clave sustituta (Surrogate Key)']
+  store_id int [note: 'ID de origen OLTP']
+  store_name varchar
+  city varchar
+  region varchar
+  country varchar
+}
+
+Table dim_customer {
+  customer_key int [pk, note: 'Clave sustituta (Surrogate Key)']
+  customer_id int [note: 'ID de origen OLTP']
+  customer_name varchar
+  segment varchar
+  city varchar
+  country varchar
+}
+
+Table fact_sales {
+  date_key int [ref: > dim_date.date_key]
+  product_key int [ref: > dim_product.product_key]
+  store_key int [ref: > dim_store.store_key]
+  customer_key int [ref: > dim_customer.customer_key]
+  quantity int [note: 'Unidades vendidas']
+  unit_price decimal [note: 'Precio unitario de venta']
+  sales_amount decimal [note: 'Monto total (quantity * unit_price)']
+}
