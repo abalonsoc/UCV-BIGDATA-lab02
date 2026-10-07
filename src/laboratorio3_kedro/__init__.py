@@ -1,0 +1,5 @@
+"""laboratorio3_kedro
+"""
+
+__version__ = "0.1"
+"""Paquete principal del proyecto laboratorio3_kedro."""

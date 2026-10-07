@@ -4,10 +4,11 @@
 CREATE SCHEMA IF NOT EXISTS workspace.bi_lab_7002586990
 COMMENT 'Laboratorio 02 - BI y Big Data - UCV';
 --rollback DROP SCHEMA IF EXISTS workspace.bi_lab_7002586990;
+
 --changeset estudiante:002
+--validCheckSum: ANY
 CREATE SCHEMA IF NOT EXISTS workspace.bi_staging_7002586990
 COMMENT 'Staging schema - BI and Big Data - Lab 03';
-
 --rollback DROP SCHEMA IF EXISTS <CATALOGO>.bi_staging_<codigo_estudiante>;
 
 databaseChangeLog:
@@ -27,6 +28,5 @@ databaseChangeLog:
       file: changelog/changes/007_create_fact_sales.sql
   - include:
       file: changelog/changes/008_create_bronze_silver_schemas.sql
-
   - include:
       file: changelog/changes/009_create_bronze_raw_tables.sql
