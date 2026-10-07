@@ -25,3 +25,8 @@ databaseChangeLog:
       file: changelog/changes/006_create_dim_store.sql
   - include:
       file: changelog/changes/007_create_fact_sales.sql
+  - include:
+      file: changelog/changes/008_create_bronze_silver_schemas.sql
+
+  - include:
+      file: changelog/changes/009_create_bronze_raw_tables.sql
