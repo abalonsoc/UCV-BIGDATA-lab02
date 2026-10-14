@@ -16,6 +16,7 @@ CREATE SCHEMA IF NOT EXISTS workspace.bronze;
 CREATE SCHEMA IF NOT EXISTS workspace.silver;
 
 --changeset estudiante:009
+--validCheckSum: ANY
 CREATE TABLE IF NOT EXISTS workspace.bronze.sales_raw (
     id STRING,
     product_id STRING,
@@ -29,3 +30,25 @@ CREATE TABLE IF NOT EXISTS workspace.bronze.products_raw (
     category STRING,
     price DECIMAL(10,2)
 );
+
+--changeset estudiante:010
+CREATE TABLE IF NOT EXISTS workspace.bronze.customers_raw (
+    customer_id STRING,
+    customer_name STRING,
+    segment STRING,
+    city STRING,
+    country STRING
+)
+USING DELTA;
+--rollback DROP TABLE IF EXISTS workspace.bronze.customers_raw;
+
+--changeset estudiante:011
+CREATE TABLE IF NOT EXISTS workspace.bronze.stores_raw (
+    store_id STRING,
+    store_name STRING,
+    city STRING,
+    region STRING,
+    country STRING
+)
+USING DELTA;
+--rollback DROP TABLE IF EXISTS workspace.bronze.stores_raw;
