@@ -52,3 +52,10 @@ CREATE TABLE IF NOT EXISTS workspace.bronze.stores_raw (
 )
 USING DELTA;
 --rollback DROP TABLE IF EXISTS workspace.bronze.stores_raw;
+
+--changeset estudiante:012
+ALTER TABLE workspace.bronze.sales_raw
+ADD COLUMNS (
+    customer_id STRING,
+    store_id STRING
+);
